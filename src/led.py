@@ -1,15 +1,10 @@
-'''
-Created on 13 Jul 2017
 
-@author: annub
-'''
 
 '''
 Created on 12 Jul 2017
 
 @author: annub
 '''
-
 import urllib.request
 import re
 import argparse
@@ -74,3 +69,45 @@ def switch_light(link):
     firstLine = buffer[0]
     N = int(firstLine)
     light = [[0] * N for _ in range(N)]
+
+    for line in buffer[1:]:  # so if i reduce the number of rows it gives the output, you see. but if i remove the
+        # total number of rows, it keeps running and takes a lot of time.
+
+        # process line
+        numbers_line = re.findall("[-\d]+", line)
+        numbers_line = [int(e) for e in numbers_line]
+        Not_consistent = False
+        if (numbers_line[0] > numbers_line[2] or numbers_line[1] > numbers_line[3]):
+            Not_consistent = True
+        if (len(numbers_line) != 4 or Not_consistent):
+            continue
+        check_command(numbers_line)
+        values = line.strip().split()
+        if (values[0] == 'switch'):
+            values[0] = 'switch'
+        elif (values[0] == 'turn' and values[1] == 'off'):
+            values[0] = 'off'
+        elif (values[0] == 'turn' and values[1] == 'on'):
+            values[0] = 'on'
+        read_command(values[0], numbers_line)
+    print(link, calculate_light())
+    return
+
+
+'''
+uri_a = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_a.txt"
+uri_b = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_b.txt"
+uri_c = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_c.txt"
+uri_d = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_d.txt"
+switch_light(uri_a)
+switch_light(uri_b)
+switch_light(uri_c)
+switch_light(uri_d)
+'''
+parser = argparse.ArgumentParser()
+parser.add_argument('--input', help='input')
+args = parser.parse_args()
+
+link = args.input
+switch_light(link)
+
