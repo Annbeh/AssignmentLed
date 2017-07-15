@@ -1,0 +1,3 @@
+[console_scripts]
+led = src.led:switch_light
+
