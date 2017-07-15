@@ -1,5 +1,4 @@
 
-
 '''
 Created on 12 Jul 2017
 
@@ -93,7 +92,6 @@ def switch_light(link):
     print(link, calculate_light())
     return
 
-
 '''
 uri_a = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_a.txt"
 uri_b = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_b.txt"
@@ -104,6 +102,7 @@ switch_light(uri_b)
 switch_light(uri_c)
 switch_light(uri_d)
 '''
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--input', help='input')
 args = parser.parse_args()
