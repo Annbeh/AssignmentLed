@@ -53,7 +53,7 @@ def calculate_light():
 
 
 def check_command(num_list):
-    for i in range(len(num_list)):
+    for i in range(len(num_list)): 
         if (num_list[i] < 0):
             num_list[i] = 0
         if (num_list[i] > N):
@@ -93,14 +93,14 @@ def switch_light(link):
     return
 
 '''
-uri_a = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_a.txt"
-uri_b = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_b.txt"
-uri_c = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_c.txt"
-uri_d = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_d.txt"
-switch_light(uri_a)
-switch_light(uri_b)
-switch_light(uri_c)
-switch_light(uri_d)
+url_a = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_a.txt"
+url_b = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_b.txt"
+url_c = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_c.txt"
+url_d = "http://claritytrec.ucd.ie/~alawlor/comp30670/input_assign3_d.txt"
+switch_light(url_a)
+switch_light(url_b)
+switch_light(url_c)
+switch_light(url_d)
 '''
 
 parser = argparse.ArgumentParser()
