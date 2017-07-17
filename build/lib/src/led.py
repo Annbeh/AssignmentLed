@@ -53,7 +53,7 @@ def calculate_light():
 
 
 def check_command(num_list):
-    for i in range(len(num_list)):
+    for i in range(len(num_list)): 
         if (num_list[i] < 0):
             num_list[i] = 0
         if (num_list[i] > N):
