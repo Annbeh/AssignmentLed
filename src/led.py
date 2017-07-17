@@ -61,7 +61,13 @@ def check_command(num_list):
     return num_list
 
 
-def switch_light(link):
+def switch_light():
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--input', help='input')
+    args = parser.parse_args()
+
+    link = args.input
     global light
     global N
     buffer = read_url(link)
@@ -103,10 +109,4 @@ switch_light(url_c)
 switch_light(url_d)
 '''
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--input', help='input')
-args = parser.parse_args()
-
-link = args.input
-switch_light(link)
 
